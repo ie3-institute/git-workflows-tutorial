@@ -1,0 +1,60 @@
+% Do compile with lualatex utilizing the Makefile
+
+\PassOptionsToPackage{unicode}{hyperref}
+\documentclass[aspectratio=1610, 9pt]{beamer}
+
+\usepackage{polyglossia}
+\setmainlanguage{english}
+
+% \usepackage{parskip}
+
+\newcommand{\iethree}{ie\textsuperscript{3}}
+
+\usetheme[
+  showtotalframes, % show total number of frames in the footline
+]{tudo}
+
+\title{Advanced Coding Workshop}
+\subtitle{How to produce good code and test it automatically}
+\author[\iethree{}-Team]{O. Pohl, C. Kittl, J. Hiry, O. Kraft, D. S. Sarma, F. Rewald}
+\institute[\iethree{}]{Institute of Energy Systems, Energy Efficiency and Energy Economics}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Disclaimer}
+    This presentation is a continuation of an internal training regarding git basics and workflows.
+    Though it might be suitable for many application cases, we tried to fit it to the needs we have at \iethree{}.
+
+    The audience asked for more information about testing and continous integration (CI) of those tests.
+    However, we felt that a thorough basis on how to write good code is the basis for being able to write understandable and sensible tests.
+    Therefore, this presentation starts with a first insight into "clean code" and sets up on this further.
+\end{frame}
+
+\begin{frame}{Contents}
+    \tableofcontents
+\end{frame}
+
+\section{Introduction}
+\begin{frame}{Introduction}
+    \begin{itemize}
+        \item Automated tests help mainting software functionality throughout changes in code base
+        \item Two types of tests are known
+        \begin{itemize}
+            \item Unit Tests -- Testing the single bits and pieces of code
+            \item Integration Tests -- Testing the interplay with outside systems
+        \end{itemize}
+        \item Unit tests somehow are basis for integration testint
+        \item Therefore, a clean code structure and implementation is key to proper unit testing
+    \end{itemize}
+\end{frame}
+
+\section{Clean Code}
+\begin{frame}
+    
+\end{frame}
+
+\section{Unit Tests}
+
+\end{document}
