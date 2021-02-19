@@ -137,5 +137,6 @@ dmypy.json
 *.out
 *.snm
 *.synctex.gz
-*.synctex.gz(busy)
+*.synctex(busy)
 *.toc
+*.pdf
