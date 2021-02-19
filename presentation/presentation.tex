@@ -25,9 +25,9 @@
     This presentation is a continuation of an internal training regarding git basics and workflows.
     Though it might be suitable for many application cases, we tried to fit it to the needs we have at \iethree{}.
 
-    The audience asked for more information about testing and continous integration (CI) of those tests.
+    The audience asked for more information about testing and continuous integration (CI) of those tests.
     However, we felt that a thorough basis on how to write good code is the basis for being able to write understandable and sensible tests.
-    Therefore, this presentation starts with a first insight into "clean code" and sets up on this further.
+    Therefore, this presentation starts with a first insight into “clean code” and sets up on this further.
 \end{frame}
 
 \begin{frame}{Contents}
@@ -36,16 +36,28 @@
 
 \section{Introduction}
 \begin{frame}{Introduction}
-    \begin{itemize}
-        \item Automated tests help mainting software functionality throughout changes in code base
-        \item Two types of tests are known
-        \begin{itemize}
-            \item Unit Tests -- Testing the single bits and pieces of code
-            \item Integration Tests -- Testing the interplay with outside systems
-        \end{itemize}
-        \item Unit tests somehow are basis for integration testint
-        \item Therefore, a clean code structure and implementation is key to proper unit testing
-    \end{itemize}
+    \textcolor{tugreen}{\textbf{Why testing?}} Automated tests help to maintain software functionality throughout changes in code base.
+
+    \textcolor{tugreen}{\textbf{When to test?}} As soon as possible. There are two cases, when testing comes into play:
+    \begin{enumerate}
+        \item When you develop new code (the easy way).
+        \item When a colleague (it's often Mr. or Mrs.\,{}Past You) hands you over bad code (the hard to really hard way).
+    \end{enumerate}
+
+    To be honest, testing is often a trade-off decision.
+    It is early investment, but prevents you from struggeling later.
+    For sure, not every small automation script needs testing.
+\end{frame}
+
+\begin{frame}{Introduction (continued)}
+    \textcolor{tugreen}{\textbf{What has Clean Coding to do with testing?}} It's because of the nature of tests. There are two types out there:
+    \begin{enumerate}
+        \item \textit{Unit Tests} -- Testing the single bits and pieces of code
+        \item \textit{Integration Tests} -- Testing the interplay with outside systems
+    \end{enumerate}
+
+    Unit tests somehow are basis for integration testing.
+    Therefore, a clean and modular code structure as well as implementation is key to proper unit testing.
 \end{frame}
 
 \section{Clean Code}
