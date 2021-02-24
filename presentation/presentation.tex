@@ -5,6 +5,18 @@
 
 \usepackage{polyglossia}
 \setmainlanguage{english}
+\usepackage[
+    backend = biber,
+    style = ieee
+]{biblatex}
+\addbibresource{bib.bib}
+\usepackage{listings}
+\lstset{
+    basicstyle = \small\ttfamily,
+    frame = leftline,
+    rulecolor = \color{tudark},
+    backgroundcolor = \color{tudark!15}
+}
 
 \newcommand{\iethree}{ie\textsuperscript{3}}
 
@@ -61,10 +73,157 @@
 \end{frame}
 
 \section{Clean Code}
-\begin{frame}
-    
+\begin{frame}{Mindset}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \setlength{\parskip}{12pt}%
+            Clean code is not stoically following a rule set you have learned.
+            It is more of a \textcolor{tugreen}{\emph{mindset}}.
+
+            See yourself as a craftsman!
+            You are crafting something every day -- do it with joy and be proud of it.
+            And most important: You get better every day!
+            Picture clean code as your own target, improving every day and gaining skills -- not only for the code itself but your way of thinking and approaching problems.
+
+            Most of what is presented here, is inspired by the work of \href{https://en.wikipedia.org/wiki/Robert_C._Martin}{Robert C. Martin}, especially \cite{Martin.2009}.
+            He considers code to be clean, if it is
+            \begin{center}
+                \textcolor{tugreen}{\emph{simple, comprehensible and fulfills it's purpose}}.
+            \end{center}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width = \columnwidth]{figures/stock/pottery.jpg}
+            {\footnotesize\textit{Picture from Enric Sagarra at \href{https://pixabay.com/images/id-3050615/}{Pixabay}}}
+        \end{column}
+    \end{columns}
 \end{frame}
+
+\begin{frame}{Campsite Rule}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \setlength{\parskip}{12pt}%
+            Well okay, \ldots{} There are some “rules” -- better say guidelines.
+
+            The first one is pretty simple and inspired by the Scout society's “Campsite Rule”:
+
+            \begin{center}
+                \textcolor{tugreen}{\emph{Leave everything cleaner, than it has been before.}}
+            \end{center}
+
+            Whenever you see a design flaw, bad structure or just a wrong comment:
+            Try to improve this piece of code.
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[trim = {100px 0 250px 0}, clip, width = \columnwidth]{figures/stock/campfire.jpg}
+            {\footnotesize\textit{Picture from LUM3N at \href{https://pixabay.com/de/photos/lagerfeuer-lager-outdoor-topf-896196/}{Pixabay}}}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Naming}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \setlength{\parskip}{12pt}%
+            
+            Use comprehensible names for your variables, attributes, methods and classes:
+            
+            \begin{itemize}
+                \item Names should reveal the purpose
+                \item Avoid acronyms
+                \item Leave out details about implementations\\E.\,{}g. \lstinline{users} instead of \lstinline{usersList}
+                \item Stick to known concepts\\E.\,{}g. \lstinline{resultListener} instead of \lstinline{resultCollector}
+                \item Use \href{https://en.wikipedia.org/wiki/Naming_convention_(programming)}{langauge-specific naming conventions}
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \setlength{\parskip}{6pt}%
+
+            \begin{lstlisting}[language = Python]
+def d(a, b):
+    return a/b
+            \end{lstlisting}
+
+            \begin{lstlisting}[language = Python]
+def divide(nominator, denominator):
+    return nominator/denominator
+            \end{lstlisting}
+
+            \begin{lstlisting}[language = Python]
+a = [...] # All users
+b = [...] # All co-workers
+
+for i in b:
+    d = 0.0
+    e = list(filter(lambda x: x.cust == i, a))
+    for f in e:
+        d = d + f.dur
+    
+    print(i + " -> " + d)
+            \end{lstlisting}
+            What does happen, here?
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Classes and Methods}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \setlength{\parskip}{9pt}%
+            
+            Classes and methods are for grouping.
+            Therefore, 
+            \begin{center}
+                \textcolor{tugreen}{\emph{one class / method per purpose.}}
+            \end{center}
+
+            \begin{itemize}
+                \item Avoid side effects
+                \item Don't alter the parameters, you hand in to a function
+                \item Avoid toggling method behavior by input
+                \item Exceptions: Split business logic and error handling
+                \item “Don't give a null, don't take a null” -- Use proper values or error handling instead.
+            \end{itemize}
+
+            Well encapsulated methods and classes help you to \textcolor{tugreen}{\emph{recycle code and avoid duplications}}.
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \setlength{\parskip}{6pt}%
+            \begin{lstlisting}[language = Python]
+some_array = []
+sumOf = add(1, 2)
+print("Sum is " + sumOf)
+
+def add(a, b):
+    c = a + b
+    some_array.append(c)
+    return c
+            \end{lstlisting}
+            
+            \begin{lstlisting}[language = Python]
+def add(a, b, add_positive):
+    if add_positive:
+        return a + b
+    else:
+        return a - b
+            \end{lstlisting}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% \begin{frame}
+%     \begin{columns}
+%         \begin{column}{0.5\textwidth}
+%             \setlength{\parskip}{12pt}%
+%         \end{column}
+%         \begin{column}{0.5\textwidth}
+%             \setlength{\parskip}{12pt}%
+%         \end{column}
+%     \end{columns}
+% \end{frame}
 
 \section{Unit Tests}
 
+\begin{frame}{References}
+    \printbibliography
+\end{frame}
 \end{document}

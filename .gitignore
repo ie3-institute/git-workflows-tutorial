@@ -130,13 +130,22 @@ dmypy.json
 
 # LaTeX stuff
 *.aux
+*.bib.bak
+*.bib.sav
+*.bbl
+*.bcf
+*.blg
 *.fdb_latexmk
 *.fls
 *.log
 *.nav
 *.out
 *.snm
+*.run.xml
 *.synctex.gz
 *.synctex(busy)
 *.toc
 *.pdf
+
+# Ignore stock photos
+presentation/figures/stock
