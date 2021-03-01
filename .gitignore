@@ -127,3 +127,26 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# LaTeX stuff
+*.aux
+*.bib.bak
+*.bib.sav
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.snm
+*.run.xml
+*.synctex.gz
+*.synctex(busy)
+*.toc
+*.pdf
+*.vrb
+
+# Ignore stock photos
+presentation/figures/stock
